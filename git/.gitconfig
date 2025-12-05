@@ -1,0 +1,58 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Andreas Stenberg
+	email = andreas@stenite.com
+[pull]
+	rebase = true
+[push]
+	default = upstream
+	autoSetupRemote = true
+	default = simple
+	renames = true
+
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
+
+[color]
+	ui = auto
+[column]
+	ui = auto
+[fetch]
+	prune = true
+	pruneTags = true
+
+[alias]
+	l1 = log --all --decorate --graph --oneline
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	last = log -1 HEAD
+	lo = log --oneline -n 10
+	amend = commit --amend --no-edit
+	staged = diff --cached
+	unstage = reset HEAD
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
+[core]
+	excludesfile = ~/.config/git/.gitignore
+[init]
+	defaultBranch = main
+
