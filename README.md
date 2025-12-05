@@ -6,6 +6,7 @@ Presumes that this repo is cloned to the home folder:
 ### Requires symlinks
 ```bash
 ~/.gitconfig -> ~/.config/git/.gitconfig
+~/.zshrc -> ~/.config/zsh/.zshrc
 ```
 
 ### Required Environment vars
