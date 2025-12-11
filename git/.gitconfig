@@ -5,7 +5,6 @@
 [pull]
 	rebase = true
 [push]
-	default = upstream
 	autoSetupRemote = true
 	default = simple
 	renames = true

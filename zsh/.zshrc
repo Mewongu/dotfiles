@@ -55,10 +55,16 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-alias ls='ls --color'
+# OS-specific ls color flag
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias ls='ls -G'
+  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -G $realpath'
+  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -G $realpath'
+else
+  alias ls='ls --color'
+  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+fi
 alias v='nvim' 
 alias vim='nvim'
 
