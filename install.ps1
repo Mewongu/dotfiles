@@ -177,7 +177,10 @@ opacity = 0.9
 
 [keyboard]
 bindings = [
-  { key = "Return", mods = "Shift", chars = "\u001b\r" }
+  { key = "Return", mods = "Shift", chars = "\u001b\r" },
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "Insert", mods = "Shift", action = "Paste" },
 ]
 "@
 
