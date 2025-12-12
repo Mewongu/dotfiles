@@ -1,0 +1,9 @@
+# Auto-cloned plugin managers
+zinit/
+
+# Backup files
+*.bak
+
+# Git-generated files
+git/ignore
+git/gitk
