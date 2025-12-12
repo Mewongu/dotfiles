@@ -85,6 +85,35 @@ function Install-Alacritty {
     }
 }
 
+function Install-Neovim {
+    if (Test-Command "nvim") {
+        Write-Success "Neovim already installed"
+        return
+    }
+
+    if (Confirm-Action "Install Neovim?") {
+        if (Test-Command "scoop") {
+            scoop install neovim
+        } elseif (Test-Command "winget") {
+            winget install Neovim.Neovim
+        } else {
+            Write-Err "No package manager found. Install Neovim manually from https://neovim.io"
+            return
+        }
+        Write-Success "Neovim installed"
+    }
+}
+
+function Show-TmuxAlternatives {
+    Write-Host ""
+    Write-Warn "tmux is not natively available on Windows"
+    Write-Info "Alternatives for terminal multiplexing:"
+    Write-Host "  1. WSL (Windows Subsystem for Linux) - Full tmux support"
+    Write-Host "  2. Windows Terminal tabs/panes - Built-in splitting"
+    Write-Host "  3. MSYS2 - pacman -S tmux (limited compatibility)"
+    Write-Host ""
+}
+
 function Install-Fonts {
     if (-not (Confirm-Action "Install JetBrains Mono Nerd Font?")) { return }
 
@@ -196,6 +225,14 @@ function Main {
     Install-Alacritty
 
     Write-Host ""
+
+    # Install Neovim
+    Install-Neovim
+
+    Write-Host ""
+
+    # Show tmux alternatives
+    Show-TmuxAlternatives
 
     # Install fonts
     Install-Fonts
