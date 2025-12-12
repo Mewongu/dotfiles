@@ -163,7 +163,7 @@ function Deploy-AlacrittyConfig {
 import = ["$($AlacrittyConfigDir -replace '\\', '/')/themes/catppuccin-mocha.toml"]
 
 [font]
-size = 16
+size = 11
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
